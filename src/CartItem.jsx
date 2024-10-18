@@ -15,8 +15,9 @@ const CartItem = ({ onContinueShopping }) => {
  //cart = [{name:"ex",cost:120},{name:"zwei",cos}]
   const calculateTotalAmount = () => {
  const total = cart.reduce((acc,curr)=>{
-    const cost = parseInt(curr.cost.replace("$",""))
-    return acc+cost
+    const cost = parseInt(curr.cost.replace("$","")) 
+   if(curr.quantity) return acc+ (cost * curr.quantity)
+   return acc + cost
  },0)
 setTotalAmount(total)
   };
